@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Earth-Moon-Sun Simulation</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+
+  <!-- UI Overlay -->
+  <div id="ui-overlay">
+    <!-- Info HUD (top-left) -->
+    <div id="hud" class="panel">
+      <div id="hud-date"></div>
+      <div id="hud-speed"></div>
+      <div id="hud-distance-moon"></div>
+      <div id="hud-distance-sun"></div>
+      <div id="hud-moon-phase"></div>
+      <div id="hud-camera"></div>
+    </div>
+
+    <!-- View Controls (top-right) -->
+    <div id="view-controls" class="panel">
+      <div class="panel-title">View</div>
+      <button class="view-btn active" data-view="orbital">Orbital</button>
+      <button class="view-btn" data-view="earth-surface">Earth Surface</button>
+      <button class="view-btn" data-view="moon-surface">Moon Surface</button>
+      <div class="separator"></div>
+      <label>
+        <span>Latitude</span>
+        <input type="number" id="input-lat" value="0" min="-90" max="90" step="1" />
+      </label>
+      <label>
+        <span>Longitude</span>
+        <input type="number" id="input-lng" value="0" min="-180" max="180" step="1" />
+      </label>
+      <div class="separator"></div>
+      <label>
+        <span>FOV</span>
+        <input type="range" id="input-fov" min="1" max="120" value="60" />
+        <span id="fov-value">60°</span>
+      </label>
+      <div class="separator"></div>
+      <label>
+        <span>Ambient</span>
+        <input type="range" id="input-ambient" min="0" max="100" value="15" />
+        <span id="ambient-value">15%</span>
+      </label>
+    </div>
+
+    <!-- Historical Events (left side, below HUD) -->
+    <div id="historical-panel" class="panel">
+      <div class="panel-title">Apollo Missions</div>
+      <div id="historical-events"></div>
+    </div>
+
+    <!-- Time Controls (bottom-center) -->
+    <div id="time-controls" class="panel">
+      <div class="time-row">
+        <button id="btn-reverse" title="Reverse">&#9664;&#9664;</button>
+        <button id="btn-slower" title="Slower">&#9664;</button>
+        <button id="btn-pause" title="Play/Pause">&#9654;</button>
+        <button id="btn-faster" title="Faster">&#9654;</button>
+        <button id="btn-forward" title="Fast Forward">&#9654;&#9654;</button>
+      </div>
+      <div class="speed-presets">
+        <button class="speed-btn" data-speed="1">1x</button>
+        <button class="speed-btn" data-speed="60">1min/s</button>
+        <button class="speed-btn" data-speed="3600">1hr/s</button>
+        <button class="speed-btn active" data-speed="86400">1day/s</button>
+        <button class="speed-btn" data-speed="604800">1wk/s</button>
+      </div>
+      <div class="time-machine">
+        <input type="datetime-local" id="input-datetime" />
+        <button id="btn-now">Now</button>
+        <button id="btn-goto">Go</button>
+      </div>
+    </div>
+
+    <!-- Toggles (bottom-right) -->
+    <div id="toggle-controls" class="panel">
+      <label><input type="checkbox" id="toggle-orbits" /> Orbit paths</label>
+      <label><input type="checkbox" id="toggle-labels" checked /> Labels</label>
+      <label><input type="checkbox" id="toggle-axes" /> Axes</label>
+    </div>
+  </div>
+
+  <!-- Loading screen -->
+  <div id="loading">
+    <div class="loading-text">Loading textures...</div>
+    <div class="loading-bar"><div class="loading-fill" id="loading-fill"></div></div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
