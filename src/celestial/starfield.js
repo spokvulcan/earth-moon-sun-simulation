@@ -7,7 +7,7 @@ export class Starfield {
   }
 
   async init(scene) {
-    const starMap = await loadTexture('/textures/stars_milky_way.jpg');
+    const starMap = await loadTexture(import.meta.env.BASE_URL + 'textures/stars_milky_way.jpg');
     starMap.colorSpace = THREE.SRGBColorSpace;
 
     // Large sphere surrounding the entire scene

@@ -17,7 +17,7 @@ export class Sun {
   async init(scene) {
     // Sun mesh (emissive, self-lit)
     const geometry = new THREE.SphereGeometry(SUN_RADIUS, 64, 32);
-    const sunMap = await loadTexture('/textures/sun_map.jpg');
+    const sunMap = await loadTexture(import.meta.env.BASE_URL + 'textures/sun_map.jpg');
 
     const material = new THREE.MeshBasicMaterial({
       map: sunMap,

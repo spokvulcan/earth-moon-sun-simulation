@@ -27,11 +27,11 @@ export class Earth {
 
   async init() {
     const [dayMap, nightMap, cloudMap, specMap, bumpMap] = await Promise.all([
-      loadTexture('/textures/earth_daymap.jpg'),
-      loadTexture('/textures/earth_nightmap.jpg'),
-      loadTexture('/textures/earth_clouds.jpg'),
-      loadTexture('/textures/earth_specular.jpg'),
-      loadTexture('/textures/earth_bump.jpg')
+      loadTexture(import.meta.env.BASE_URL + 'textures/earth_daymap.jpg'),
+      loadTexture(import.meta.env.BASE_URL + 'textures/earth_nightmap.jpg'),
+      loadTexture(import.meta.env.BASE_URL + 'textures/earth_clouds.jpg'),
+      loadTexture(import.meta.env.BASE_URL + 'textures/earth_specular.jpg'),
+      loadTexture(import.meta.env.BASE_URL + 'textures/earth_bump.jpg')
     ]);
 
     const geometry = new THREE.SphereGeometry(

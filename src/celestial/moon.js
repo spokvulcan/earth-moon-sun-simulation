@@ -16,8 +16,8 @@ export class Moon {
 
   async init() {
     const [moonMap, bumpMap] = await Promise.all([
-      loadTexture('/textures/moon_map.jpg'),
-      loadTexture('/textures/moon_bump.jpg')
+      loadTexture(import.meta.env.BASE_URL + 'textures/moon_map.jpg'),
+      loadTexture(import.meta.env.BASE_URL + 'textures/moon_bump.jpg')
     ]);
 
     const geometry = new THREE.SphereGeometry(
